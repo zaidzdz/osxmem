@@ -2,6 +2,11 @@
 name = "memedit"
 version = "0.1.0"
 edition = "2024"
+description = "A macOS library for reading and writing process memory using the Mach kernel APIs."
+license = "MIT"
+repository = "https://github.com/zaidzdz/memedit"
+keywords = ["memory", "mach", "macos", "process"]
+categories = ["os::macos-apis", "development-tools::debugging"]
 
 [dependencies]
 libproc = "0.14.11"
