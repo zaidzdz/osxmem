@@ -14,6 +14,17 @@ pub enum ProcessErr {
     ListFailed(String),
     KernError(String),
 }
+impl std::fmt::Display for ProcessErr {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        match self {
+            ProcessErr::ListFailed(s) => write!(f, "failed to list processes: {}", s),
+            ProcessErr::KernError(s) => write!(f, "kernel error: {}", s),
+        }
+    }
+}
+
+impl std::error::Error for ProcessErr {}
+
 impl ProcessErr {
     pub(crate) fn from_kern(kr: kern_return_t) -> Self {
         unsafe extern "C" { fn mach_error_string(err: kern_return_t) -> *const std::ffi::c_char;} // Import c library for mach_error_string function
