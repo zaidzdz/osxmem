@@ -1,6 +1,6 @@
 //! # memedit
 //!
-//! A macOS process memory editor abstracting the Mach APIs and making memory viewing and editing very easy.
+//! A macOS library for reading and writing process memory using the Mach kernel APIs.
 //!
 //! # Example
 //!
