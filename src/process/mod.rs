@@ -16,7 +16,7 @@ pub enum ProcessErr {
 }
 impl ProcessErr {
     pub(crate) fn from_kern(kr: kern_return_t) -> Self {
-        unsafe extern "C" { fn mach_error_string(err: kern_return_t) -> *const std::ffi::c_char;} //import c library for mach_error_string function
+        unsafe extern "C" { fn mach_error_string(err: kern_return_t) -> *const std::ffi::c_char;} // Import c library for mach_error_string function
 
         let msg = unsafe { std::ffi::CStr::from_ptr(mach_error_string(kr)) }
             .to_string_lossy()
